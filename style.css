@@ -1,0 +1,218 @@
+/* General Styles */
+:root {
+  --bg-color: #f4f6f9;
+  --text-color: #222;
+  --card-bg: #fff;
+  --accent-color: #0077b6;
+}
+
+body.dark-theme {
+  --bg-color: #181a1b;
+  --text-color: #e6e6e6;
+  --card-bg: #242526;
+  --accent-color: #00b4d8;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--accent-color);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
+.app-header .logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+#themeToggle {
+  background: #fff;
+  color: var(--accent-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#themeToggle:hover {
+  background: var(--card-bg);
+  transform: scale(1.05);
+}
+
+/* Container */
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+}
+
+/* Form Pane */
+.form-pane {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Cards */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Inputs */
+input, textarea, select {
+  width: 95%;
+  margin: 8px 0 12px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+input:focus, textarea:focus, select:focus {
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+  outline: none;
+}
+
+/* Buttons */
+button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005f87;
+}
+
+/* Preview Pane */
+.preview-pane {
+  flex: 1;
+  min-width: 300px;
+  position: sticky;
+  top: 20px;
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Skill bars */
+.skill-bar {
+  background-color: #eee;
+  border-radius: 8px;
+  height: 12px;
+  margin: 5px 0;
+  overflow: hidden;
+}
+
+.skill-fill {
+  background-color: var(--accent-color);
+  height: 100%;
+  width: 0%;
+  transition: width 0.6s ease;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(10px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Theme / Template selector */
+.theme-section {
+  margin: 15px 0;
+  padding: 10px;
+  background: var(--card-bg);
+  border-radius: 6px;
+}
+
+.theme-section label {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+/* Print-friendly PDF */
+@media print {
+  body * { visibility: hidden; }
+  #resumePreview, #resumePreview * { visibility: visible; }
+  #resumePreview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: none;
+    padding: 0.5in;
+    color: #000;
+  }
+  #resumePreview button,
+  #resumePreview input,
+  #resumePreview textarea { display: none !important; }
+  .skill-fill { transition: none !important; height: 12px !important; }
+  #resumePreview h1, #resumePreview h2, #resumePreview h3 { color: #000; }
+  * { overflow: visible !important; }
+}
+/* Modern Template */
+#resumePreview.modern h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: #0077b6;
+}
+#resumePreview.modern h2, #resumePreview.modern h3 {
+  color: #0077b6;
+}
+#resumePreview.modern p {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+}
+
+/* Classic Template */
+#resumePreview.classic h1 {
+  font-family: 'Times New Roman', serif;
+  color: #333;
+  text-decoration: underline;
+}
+#resumePreview.classic h2, #resumePreview.classic h3 {
+  font-family: 'Times New Roman', serif;
+  color: #555;
+}
+#resumePreview.classic p {
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+}

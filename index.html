@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Resume Builder</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header -->
+<header class="app-header">
+  <h1 class="logo">Resume Builder</h1>
+  <button id="themeToggle">🌞 Day</button>
+</header>
+
+<main class="container">
+
+  <!-- Form Pane -->
+  <div class="form-pane">
+    
+    <!-- Theme / Template Selector -->
+    <section class="theme-section">
+      <label for="templateSelect">🎨 Choose Template:</label>
+      <select id="templateSelect">
+        <option value="modern">Modern</option>
+        <option value="classic">Classic</option>
+      </select>
+    </section>
+
+    <!-- Personal Details -->
+    <section class="card">
+      <h3>Personal Details</h3>
+      <input type="text" id="name" placeholder="Full Name" maxlength="50">
+      <input type="email" id="email" placeholder="Email">
+      <input type="text" id="phone" placeholder="Phone Number">
+      <input type="text" id="linkedin" placeholder="LinkedIn URL">
+    </section>
+
+    <!-- Education -->
+    <section class="card">
+      <h3>Education</h3>
+      <div id="education-container"></div>
+      <button type="button" id="add-education">+ Add Education</button>
+    </section>
+
+    <!-- Work / Projects -->
+    <section class="card">
+      <h3>Experience / Projects</h3>
+      <div id="work-container"></div>
+      <button type="button" id="add-work">+ Add Work / Project</button>
+    </section>
+
+    <!-- Skills -->
+    <section class="card">
+  <h3>Skills</h3>
+  <div id="skills-container"></div>
+  <button type="button" id="add-skill">+ Add Skill</button>
+</section>
+
+  </div>
+
+  <!-- Preview Pane -->
+  <div class="preview-pane card" id="resumePreview">
+    <h2>Live Preview</h2>
+    <h1 id="previewName">Your Name</h1>
+    <p id="previewContact"></p>
+    <div id="previewEducation"></div>
+    <div id="previewWork"></div>
+    <div id="previewSkills"></div>
+    <button id="exportBtn">Export as PDF</button>
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
